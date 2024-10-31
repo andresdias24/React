@@ -1,27 +1,26 @@
-import { useState } from "react"
-import AddCategory from "./components/AddCategory"
+import { useState } from "react";
+import AddCategory from "./components/AddCategory";
+
 export const GifEXpertApp = () => {
+  const [categories, setCategories] = useState(["naruto", "one piece"]);
 
-    const [categories, setCategories] = useState(["naruto", "one piece"])
-
-    const onAddCategory = () => {
-        setCategories(["goku", ...categories])
-    }
+  const onAddCategory = () => {
+    setCategories(["NUEVA", ...categories]);
+  };
 
   return (
-    <>
-        <div>gif expert app</div>
+    <div>
+      <div>gif expert app</div>
 
-        <AddCategory/>
+      <AddCategory setCategories={setCategories} />
 
-        <button onClick={onAddCategory}>agregar</button>
-        <ol>
-            {categories.map(category=>{
-                return <li key={category}>{category}</li>
-            })}
-        </ol>
+      {/* <button onClick={onAddCategory}>Agregar</button> */}
 
-    </>
-
-  )
-}
+      <ol>
+        {categories.map((category) => (
+          <li key={category}>{category}</li>
+        ))}
+      </ol>
+    </div>
+  );
+};
