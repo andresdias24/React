@@ -9,8 +9,11 @@ export default function AddCategory({ setCategories }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (inputValue.trim().length <= 1) return;
+
     console.log(inputValue);
     setCategories((categories) => [inputValue, ...categories]);
+    setInputValue("");
   };
 
   return (
